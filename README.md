@@ -1,4 +1,4 @@
-#MICHI# MIchi
+# MICHI
 
 config.h.sample kopieren und ausfuellen, dann
 
