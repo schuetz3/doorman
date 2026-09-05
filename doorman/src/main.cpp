@@ -298,7 +298,16 @@ void setup()
 {
 #ifdef ESP32
     // initialize watchdog
+#if ESP_IDF_VERSION_MAJOR >= 5
+    esp_task_wdt_config_t twdt_config = {
+        .timeout_ms = WATCHDOG_TIMEOUT_S * 1000,
+        .idle_core_mask = 0,
+        .trigger_panic = true,
+    };
+    esp_task_wdt_reconfigure(&twdt_config); // TWDT is already initialized by arduino-esp32
+#else
     esp_task_wdt_init(WATCHDOG_TIMEOUT_S, true); // enable panic so ESP32 restarts
+#endif
     esp_task_wdt_add(NULL);                      // add current thread to WDT watch
 #endif
     Serial.begin(115200);

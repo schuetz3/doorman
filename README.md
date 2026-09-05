@@ -1,4 +1,8 @@
-# Doorman
+#MICHI# MIchi
+
+config.h.sample kopieren und ausfuellen, dann
+
+    pio run -e doorman_esp32dev -t upload -t monitor --upload-port /dev/tty.usbserial-58741126681  --monitor-port /dev/tty.usbserial-58741126681
 
 Doorman is an ESP32 or ESP8266 based mqtt bridge to connect your [TCS](https://www.tcsag.de/) or [Koch](https://www.kochag.ch/) Intercom to any home automation system.
 
